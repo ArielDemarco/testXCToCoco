@@ -17,14 +17,14 @@ on:
         description: "a number"
         required: false 
 
-  jobs:
-    print_things:
-      name: Print Stuff
-      runs-on: ubuntu-latest
-      env:
-        EVENT_TYPE: ${{ github.ref_type }}
-      steps:
-        name: Print event type
-        run: |
-          echo "EVENT TYPE IS $EVENT_TYPE"
+jobs:
+  print_things:
+    name: Print Stuff
+    runs-on: ubuntu-latest
+    env:
+      EVENT_TYPE: ${{ github.ref_type }}
+    steps:
+      name: Print event type
+      run: |
+        echo "EVENT TYPE IS $EVENT_TYPE"
 
