@@ -1,0 +1,30 @@
+name: Test Worfklow
+
+env:
+  ARCHIVE_QUIET_MODE: 1
+  AWS_DEFAULT_REGION: "${{ vars.AWS_DEFAULT_REGION }}"
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+    branches:
+      - "release/*"
+  
+  workflow_dispatch:
+    inputs:
+      versions:
+        description: "a number"
+        required: false 
+
+  jobs:
+    print_things:
+      name: Print Stuff
+      runs-on: ubuntu-latest
+      env:
+        EVENT_TYPE: ${{ github.ref_type }}
+      steps:
+        name: Print event type
+        run: |
+          echo "EVENT TYPE IS $EVENT_TYPE"
+
