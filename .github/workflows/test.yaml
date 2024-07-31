@@ -24,7 +24,7 @@ jobs:
     env:
       EVENT_TYPE: ${{ github.ref_type }}
     steps:
-      name: Print event type
-      run: |
-        echo "EVENT TYPE IS $EVENT_TYPE"
+      - name: Print event type
+        run: |
+          echo "EVENT TYPE IS $EVENT_TYPE"
 
